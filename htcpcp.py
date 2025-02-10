@@ -18,41 +18,6 @@ from time_handler import TimeHandler
 serviceRegister = ServiceRegister()
 timeHandler = TimeHandler()
 
-#TEST: curl with content type
-# curl -X POST -H "Content-Type: application/coffee-pot-command" http://localhost:8080
-# curl -X POST -H "Content-Type: application/tea-pot-command" http://localhost:8080
-# curl -X POST -H "Content-Type: message/coffeepot" http://localhost:8080
-# curl -X POST -H "Content-Type: message/teapot" http://localhost:8080
-#TEST: curl with accept additions
-# curl -X POST -H "Content-Type: application/coffee-pot-command" -H "Accept-Additions: Milk:2" http://localhost:8080
-#TEST: curl with invalid accept additions
-# curl -X POST -H "Content-Type: application/coffee-pot-command" -H "Accept-Additions: ABCD" http://localhost:8080
-#TEST: curl with invalid content type
-# curl -X POST -H "Content-Type: application/abcd" http://localhost:8080
-#TEST: curl with invalid content type and accept additions
-# curl -X POST -H "Content-Type: application/abcd" -H "Accept-Additions: Milk:2" http://localhost:8080
-#TEST: curl with invalid content type and invalid accept additions
-# curl -X POST -H "Content-Type: application/abcd" -H "Accept-Additions: ABCD" http://localhost:8080
-#TEST: json
-# curl http://localhost:8080/json
-# curl http://localhost:8080/json/0
-# curl http://localhost:8080/json/1
-#TEST: when
-# curl -X WHEN http://localhost:8080
-#TEST: when with id
-# curl -X WHEN http://localhost:8080/0
-# curl -X WHEN http://localhost:8080/json/0
-#TEST: propfind
-# curl -X PROPFIND http://localhost:8080
-#TEST: propfind with id
-# curl -X PROPFIND http://localhost:8080/0
-# curl -X PROPFIND http://localhost:8080/json/0
-#TEST: AI image generation
-# curl -X GET http://localhost:8080/image/0
-#TEST: check uri protocol
-# curl -X POST tea://localhost:8080/
-# curl -X POST coffee://localhost:8080/
-
 class HTCPCPHandler(BaseHTTPRequestHandler):
 	def do_OPTIONS(self):
 		self.send_response(200)
